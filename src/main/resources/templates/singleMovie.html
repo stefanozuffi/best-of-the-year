@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Detail</title>
+</head>
+<body>
+    <h2>Movie Detail</h2>
+    <div th:if="${movie != null}">
+        <p><strong>ID:</strong> [[${movie.id}]]</p>
+        <p><strong>Titolo:</strong> [[${movie.title}]]</p>
+    </div>
+    <div th:if="${movie == null}">
+        <p>Film non trovato.</p>
+    </div>
+</body>
+</html>

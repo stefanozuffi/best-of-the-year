@@ -4,7 +4,7 @@ public class Song {
     private int id;
     private String title;
 
-    protected int getID() {
+    public int getId() {
         return this.id;
     }
 
@@ -13,6 +13,11 @@ public class Song {
     }
 
     public Song(String title) {
+        this.id = (int) (Math.random() * 1000);
+        this.title = title;
+    }
+    public Song(int id, String title) {
+        this.id = id;
         this.title = title;
     }
 }

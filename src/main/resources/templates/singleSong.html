@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Detail</title>
+</head>
+<body>
+    <h2>Song Detail</h2>
+    <div th:if="${song != null}">
+        <p><strong>ID:</strong> [[${song.id}]]</p>
+        <p><strong>Titolo:</strong> [[${song.title}]]</p>
+    </div>
+    <div th:if="${song == null}">
+        <p>Canzone non trovata.</p>
+    </div>
+</body>
+</html>
