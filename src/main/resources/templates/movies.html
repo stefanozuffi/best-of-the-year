@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+</head>
+<body>
+    <h2>A list of Movies</h2>
+    <th:block th:each="movie : ${movies}">
+        <span>[[${movie.title}]]</span> <span>, </span>
+    </th:block>
+</body>
+</html>
