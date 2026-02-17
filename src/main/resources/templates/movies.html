@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Movies')}"></head>
 <body>
-    <h2>A list of Movies</h2>
-    <th:block th:each="movie : ${movies}">
-        <span>[[${movie.title}]],</span> <span> </span>
-    </th:block>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container">
+        <h2 class="mb-4"> Best Movies of the Year</h2>
+        <div class="list-group">
+            <a th:each="movie : ${movies}"
+               th:href="@{/movies/{id}(id=${movie.id})}"
+               th:text="${movie.title}"
+               class="list-group-item list-group-item-action">
+            </a>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
 </body>
 </html>

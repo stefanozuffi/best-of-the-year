@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Home')}"></head>
 <body>
-    <h1> Test </h1>
+
+    <div class="d-flex flex-column justify-content-center gap-5">
+        <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container text-center mt-5">
+        <h1>Best of the Year by <span th:text="${name}" class="text-warning">...</span></h1>
+        <div class="mt-4">
+            <a th:href="@{/movies}" class="btn btn-primary me-2"> Movies</a>
+            <a th:href="@{/songs}" class="btn btn-success"> Songs </a>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
+    </div>
+    
 </body>
 </html>

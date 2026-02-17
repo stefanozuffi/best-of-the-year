@@ -18,9 +18,10 @@ import org.lessons.java.ex.best_of_the_year.classes.Song;
 public class HomeController {
 
     @GetMapping("/")
-    public String home() {
-        return "home";
-    }
+public String home(Model model) {
+    model.addAttribute("name", "Stef");
+    return "home";
+}
     
     @GetMapping("/welcome")
     public String getWelcome(@RequestParam(name = "name") String name, Model model) {

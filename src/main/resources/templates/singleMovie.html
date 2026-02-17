@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Movie Detail</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Movie Detail')}"></head>
 <body>
-    <h2>Movie Detail</h2>
-    <div th:if="${movie != null}">
-        <p><strong>ID:</strong> [[${movie.id}]]</p>
-        <p><strong>Titolo:</strong> [[${movie.title}]]</p>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container">
+        <a th:href="@{/movies}" class="btn btn-secondary mb-3">← Torna ai film</a>
+        <div th:if="${movie != null}" class="card p-4">
+            <h3 th:text="${movie.title}"></h3>
+            <p class="text-muted">ID: <span th:text="${movie.id}"></span></p>
+        </div>
+        <div th:if="${movie == null}" class="alert alert-danger">Film non trovato.</div>
     </div>
-    <div th:if="${movie == null}">
-        <p>Film non trovato.</p>
-    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
 </body>
 </html>

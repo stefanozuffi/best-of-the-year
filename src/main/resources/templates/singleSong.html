@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Song Detail</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Song Detail')}"></head>
 <body>
-    <h2>Song Detail</h2>
-    <div th:if="${song != null}">
-        <p><strong>ID:</strong> [[${song.id}]]</p>
-        <p><strong>Titolo:</strong> [[${song.title}]]</p>
+    <nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+    <div class="container">
+        <a th:href="@{/songs}" class="btn btn-secondary mb-3">← Torna alle canzoni</a>
+        <div th:if="${song != null}" class="card p-4">
+            <h3 th:text="${song.title}"></h3>
+            <p class="text-muted">ID: <span th:text="${song.id}"></span></p>
+        </div>
+        <div th:if="${song == null}" class="alert alert-danger">Canzone non trovata.</div>
     </div>
-    <div th:if="${song == null}">
-        <p>Canzone non trovata.</p>
-    </div>
+
+    <footer th:replace="~{fragments/layout :: footer}"></footer>
 </body>
 </html>
